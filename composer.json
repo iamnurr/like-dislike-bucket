@@ -8,6 +8,13 @@
             "NrType\\LikeDislike\\": "src/"
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "NrType\\LikeDislike\\Providers\\LikeDislikeServiceProvider"
+            ]
+        }
+    },
     "authors": [
         {
             "name": "iamnurr",
