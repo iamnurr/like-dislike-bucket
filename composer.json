@@ -1,0 +1,19 @@
+{
+    "name": "nr-type/like-dislike",
+    "description": "This is a package for devs who want to use like dislike options in there applications, this is the easiest way to to that.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "NrType\\LikeDislike\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "iamnurr",
+            "email": "nurrislam.20@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
