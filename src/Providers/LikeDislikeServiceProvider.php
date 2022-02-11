@@ -22,6 +22,8 @@ class LikeDislikeServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->publishes([
+            __DIR__.'/../database/migrations/' => database_path('migrations')
+        ], 'like-dislike-migrations');
     }
 }
