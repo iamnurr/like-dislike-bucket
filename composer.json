@@ -1,6 +1,6 @@
 {
     "name": "nr-type/like-dislike",
-    "description": "This is a package for devs who want to use like dislike options in there applications, this is the easiest way to to that.",
+    "description": "This is a package for developers who want to use like and dislike options in their applications, this is the easiest way to do that.",
     "type": "library",
     "license": "MIT",
     "autoload": {

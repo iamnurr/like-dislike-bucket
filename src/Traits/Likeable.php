@@ -33,6 +33,9 @@ trait Likeable {
 
     public function like ()
     {
+        if($this->hasLike()){
+            return 'Liked';
+        }
         if($this->dislikeDependency()){
             $this->removeDislike();
         }
@@ -50,16 +53,13 @@ trait Likeable {
 
     // likers
 
-    public function likers (array $fields = null, string $table = null)
+    public function likers (array $fields = null)
     {
         if (empty($fields)) {
             $fields = ['id','name'];
         }
-        if (empty($table)) {
-            $table = 'users';
-        }
         $likerIds = $this->likes()->pluck('user_id');
-        $likers = DB::table($table)
+        $likers = DB::table('users')
             ->select($fields)
             ->whereIn('id',$likerIds)
             ->get();

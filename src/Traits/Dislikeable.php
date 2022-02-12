@@ -26,6 +26,9 @@ trait Dislikeable {
 
     public function dislike ()
     {
+        if($this->hasDislike()){
+            return 'Disliked';
+        }
         if($this->likeDependency()){
             $this->removeLike();
         }
@@ -41,16 +44,13 @@ trait Dislikeable {
         return $this->morphMany(Dislike::class, 'dislikeable');
     }
 
-    public function dislikers (array $fields = null , string $table = null)
+    public function dislikers (array $fields = null)
     {
         if (empty($fields)) {
             $fields = ['id','name'];
         }
-        if (empty($table)) {
-            $table = 'users';
-        }
         $dislikerIds = $this->dislikes()->pluck('user_id');
-        $dislikers = DB::table($table)
+        $dislikers = DB::table('users')
             ->select($fields)
             ->whereIn('id',$dislikerIds)
             ->get();
