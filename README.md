@@ -1,9 +1,12 @@
 # Laravel Like Dislike Package
 
-<p align="center">
-<a href="https://github.com/iamnurr/like-dislike-bucket/issues"><img src="https://img.shields.io/github/issues/iamnurr/like-dislike-bucket" alt="Issues"></a>
-<a href="https://github.com/iamnurr/like-dislike-bucket/stargazers"><img src="https://img.shields.io/github/stars/iamnurr/like-dislike-bucket" alt="Stars"></a>
-<img src="https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2Fiamnurr%2Flike-dislike-bucket" alt="Twitter"></a>
+<p align="end">
+<a href="https://github.com/iamnurr/like-dislike-bucket/issues"><img src="https://img.shields.io/github/issues/iamnurr/like-dislike-bucket?color=critical" alt="Issues"></a>
+<a href="https://github.com/iamnurr/like-dislike-bucket/stargazers"><img src="https://img.shields.io/github/stars/iamnurr/like-dislike-bucket?color=success" alt="Stars"></a>
+ <a href="https://github.com/iamnurr/like-dislike-bucket/forks"><img src="https://img.shields.io/github/forks/iamnurr/like-dislike-bucket?color=9cf" alt="Forks"></a>
+ <a href="https://github.com/iamnurr/like-dislike-bucket/tags"><img src="https://img.shields.io/github/v/tag/iamnurr/like-dislike-bucket" alt="Tag"></a>
+<a href="https://github.com/iamnurr/like-dislike-bucket/blob/main/LICENSE"><img src="https://img.shields.io/github/license/iamnurr/like-dislike-bucket?color=orange" alt="License"></a>
+<a><img src="https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2Fiamnurr%2Flike-dislike-bucket" alt="Twitter"></a>
 </p>
 
 ## About Package
@@ -203,7 +206,7 @@ public function index()
 ```
 
 ## Additional options
-`hasLike()`, `hasDislike()` is for check that particular user has like or dislike in post or comment. It return `boolean`. You can use  `hasLike()` `hasDislike()` in blades file as well.
+`hasLike()`, `hasDislike()` is for check that logged in user has like or dislike in post or comment. It return `boolean`. You can use  `hasLike()` `hasDislike()` in blades file as well.
 
 ```php
 {{ $post->hasLike() ? 'Liked' : 'Like' }}
