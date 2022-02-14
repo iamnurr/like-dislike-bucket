@@ -4,7 +4,7 @@
 <a href="https://github.com/iamnurr/like-dislike-bucket/issues"><img src="https://img.shields.io/github/issues/iamnurr/like-dislike-bucket?color=critical" alt="Issues"></a>
 <a href="https://github.com/iamnurr/like-dislike-bucket/stargazers"><img src="https://img.shields.io/github/stars/iamnurr/like-dislike-bucket?color=success" alt="Stars"></a>
  <a href="https://github.com/iamnurr/like-dislike-bucket/forks"><img src="https://img.shields.io/github/forks/iamnurr/like-dislike-bucket?color=9cf" alt="Forks"></a>
- <a href="https://github.com/iamnurr/like-dislike-bucket/tags"><img src="https://img.shields.io/github/v/tag/iamnurr/like-dislike-bucket" alt="Tag"></a>
+ <a href="https://github.com/iamnurr/like-dislike-bucket/tags"><img src="https://img.shields.io/github/v/tag/iamnurr/like-dislike-bucket" alt="Tags"></a>
 <a href="https://github.com/iamnurr/like-dislike-bucket/blob/main/LICENSE"><img src="https://img.shields.io/github/license/iamnurr/like-dislike-bucket?color=orange" alt="License"></a>
 <a><img src="https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2Fiamnurr%2Flike-dislike-bucket" alt="Twitter"></a>
 </p>
@@ -74,6 +74,10 @@ class Post extends Model
 }
 ```
 
+## Compatibility
+
+`Like` and `Dislike` can work individually and also both are compatible to work with each other, suppose someone like the post and after some time later thinks that he/she wants to dislike the post. He/she just simply click the dislike button, and it will `remove` his/her `like` on that particular post and `dislike`.
+
 # Uses in Controller
 
 ## Like
@@ -130,10 +134,6 @@ public function dislike (Post $post)
     return redirect()->route('posts.index');
 }
 ```
-
-## Compatibility
-
-`Like` and `Dislike` can work individually and also both are compatible to work with each other, suppose someone like the post and after some time later thinks that he/she wants to dislike the post. He/she just simply click the dislike button, and it will `remove` his/her `like` on that particular post and `dislike`.
 
 ## Likers and Dislikers on the Post
 You can easily access likers and dislikers through `likers()` and `dislikers()`. default it will return with users `id`,`name` from `users` table.
@@ -197,7 +197,14 @@ You may have `comments` on `posts` and you need `comments` and also  need `likes
 ```php
 public function index()
 {
-    $relations = ['likes','likeCounter','dislikes','dislikeCounter''comments.likes','comments.likeCounter'];
+    $relations = [
+        'likes',
+        'likeCounter',
+        'dislikes',
+        'dislikeCounter',
+        'comments.likes',
+        'comments.likeCounter'
+    ];
 
     $data['posts'] = Post::with($relations)->get();
 
@@ -215,4 +222,4 @@ public function index()
 
 ## License
 
-Like Dislike bucket is open-sourced software licensed under the MIT license.
+Like Dislike bucket is open-sourced software licensed under the [MIT license](https://github.com/iamnurr/like-dislike-bucket/blob/main/LICENSE).
