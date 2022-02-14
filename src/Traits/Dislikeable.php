@@ -14,7 +14,7 @@ trait Dislikeable {
 
     public function removeDislike ()
     {
-        $dislike = $this->dislikes->firstWhere('user_id', $this->authUserId());
+        $dislike = $this->dislikes()->firstWhere('user_id', $this->authUserId());
 
         if(!empty($dislike)){
             $dislike->delete();
@@ -102,6 +102,6 @@ trait Dislikeable {
         if(method_exists(static::class, 'authId')){
             return $this->authId();
         }
-        return auth()->user()->id;
+        return auth()->id();
     }
 }

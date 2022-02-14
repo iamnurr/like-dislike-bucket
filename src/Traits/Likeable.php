@@ -11,7 +11,7 @@ trait Likeable {
 
     private function authId ()
     {
-        return auth()->user()->id;
+        return auth()->id();
     }
 
     public function hasLike ()
@@ -21,7 +21,7 @@ trait Likeable {
 
     public function removeLike ()
     {
-        $like = $this->likes->firstWhere('user_id', $this->authId());
+        $like = $this->likes()->firstWhere('user_id', $this->authId());
 
         if(!empty($like)){
             $like->delete();
